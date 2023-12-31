@@ -52,6 +52,16 @@
             margin-bottom: 10px;
             color: #343a40;
         }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -60,7 +70,23 @@
         <h1>404 - Site Unavailable</h1>
         <p>We apologize, but our site is currently down. We are working to bring it back online within the next few days.</p>
         <p>Wishing you a Happy New Year 2024!</p>
+        <button onclick="showError()">Click here for more info</button>
         <div class="happy-new-year"></div>
     </div>
+
+    <script>
+        function showError() {
+            var errorWindow = window.open('', 'Error Window', 'width=400,height=300,menubar=0,toolbar=0,status=0');
+            errorWindow.document.write('<style>body { background-color: #000; color: #e44d26; text-align: center; margin: 0; padding: 20px; font-family: \'Courier New\', Courier, monospace; }</style>');
+            errorWindow.document.write('<h2>Critical Error</h2>');
+            errorWindow.document.write('<p>*** ALERT ***</p>');
+            errorWindow.document.write('<p>TEKNIK AB GAMES</p>');
+            errorWindow.document.write('<p>SECURITY BREACH - SERVERS DOWN</p>');
+            errorWindow.document.write('<p>Our servers are currently down due to a security breach. A potential cyber attack or virus intrusion has occurred. Our team is working diligently to investigate and resolve the situation. Your data and security are our top priorities. We appreciate your understanding and patience during this critical time.</p>');
+            errorWindow.document.write('<p>For more information, please contact support at info.teknik.ab@gmail.com.</p>');
+            errorWindow.document.write('<p>Thank you for your cooperation.</p>');
+            errorWindow.document.close();
+        }
+    </script>
 </body>
 </html>
