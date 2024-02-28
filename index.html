@@ -90,6 +90,36 @@
         .cookies-popup button:hover {
             background-color: #357ae8;
         }
+
+        /* Version info styles */
+        .version-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .version-info h4 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            color: #4285f4; /* Google blue color */
+        }
+
+        .version-info p {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+
+        .creator {
+            font-weight: bold;
+        }
+
+        .version-info .copyright {
+            color: #777; /* Gray color */
+        }
+
+        .version-info .developers {
+            font-style: italic;
+            color: #555; /* Dark gray color */
+        }
     </style>
 </head>
 <body>
@@ -97,7 +127,7 @@
     <div class="cookies-popup" id="cookies-popup">
         This website uses cookies to ensure you get the best experience on our website.
         <button id="accept-cookies">Accept</button>
-        <button id="close-cookies-popup">Close</button>
+        <button id="reject-cookies">Reject</button>
     </div>
 
     <div class="container">
@@ -264,12 +294,14 @@
         </div>
         <!-- Repeat the above game slot HTML for Games 3 to 16 -->
     </div>
-    <h4>Verison 2.8</h4>  
-    <h5>Created by Moviebox C17 & Askansz<h5>
-    <h5>copyrhigt 2024 Teknik AB Games. All rhigts reserved</h5>
-    <h5>To developers</h5>
-    <a href="https://movieboxc17.github.io/Teknik-ABs-login/" class="link">Click here</a>
-    
+
+    <!-- Version info -->
+    <div class="version-info">
+        <h4>Version 2.8</h4>  
+        <p>Created by <span class="creator">Moviebox C17</span> & <span class="creator">Askansz</span></p>
+        <p class="copyright">&copy; 2024 Teknik AB Games. All rights reserved.</p>
+        <p class="developers">For developers:</p>
+    </div>
 
     <!-- Botpress Webchat -->
     <div id="webchat"></div>
@@ -278,24 +310,55 @@
 
     <!-- JavaScript for cookies popup -->
     <script>
-        // Function to close the cookies popup
-        function closeCookiesPopup() {
-            document.getElementById("cookies-popup").style.display = "none";
+        // Function to set a cookie with name, value, and expiration date
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
         }
 
-        // Function to accept cookies and hide the popup
+        // Function to get the value of a cookie by name
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1, c.length);
+                }
+                if (c.indexOf(nameEQ) == 0) {
+                    return c.substring(nameEQ.length, c.length);
+                }
+            }
+            return null;
+        }
+
+        // Function to close the cookies popup and set the cookie preference to accepted
         function acceptCookies() {
+            setCookie("cookies_accepted", "true", 365); // Set cookie preference to accepted for 1 year
             document.getElementById("cookies-popup").style.display = "none";
         }
 
-        // Event listener for the close button
-        document.getElementById("close-cookies-popup").addEventListener("click", closeCookiesPopup);
+        // Function to close the cookies popup and set the cookie preference to rejected
+        function rejectCookies() {
+            setCookie("cookies_accepted", "false", 365); // Set cookie preference to rejected for 1 year
+            document.getElementById("cookies-popup").style.display = "none";
+        }
 
         // Event listener for the accept cookies button
         document.getElementById("accept-cookies").addEventListener("click", acceptCookies);
 
-        // Show the cookies popup when the page loads
-        document.getElementById("cookies-popup").style.display = "block";
+        // Event listener for the reject cookies button
+        document.getElementById("reject-cookies").addEventListener("click", rejectCookies);
+
+        // Show the cookies popup only if the user has not previously accepted or rejected cookies
+        if (getCookie("cookies_accepted") === null) {
+            document.getElementById("cookies-popup").style.display = "block";
+        }
     </script>
 </body>
 </html>
