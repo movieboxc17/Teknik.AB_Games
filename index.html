@@ -340,13 +340,13 @@
 
         // Function to close the cookies popup and set the cookie preference to accepted
         function acceptCookies() {
-            setCookie("cookies_accepted", "true", 365); // Set cookie preference to accepted for 1 year
+            setCookie("cookies_accepted", "true", 7); // Set cookie preference to accepted for 1 year
             document.getElementById("cookies-popup").style.display = "none";
         }
 
         // Function to close the cookies popup and set the cookie preference to rejected
         function rejectCookies() {
-            setCookie("cookies_accepted", "false", 365); // Set cookie preference to rejected for 1 year
+            setCookie("cookies_accepted", "true", 7); // Set cookie preference to rejected for 1 year
             document.getElementById("cookies-popup").style.display = "none";
         }
 
