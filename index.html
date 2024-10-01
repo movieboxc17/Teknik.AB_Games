@@ -155,6 +155,7 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
+            cursor: pointer;
         }
 
         .game-slot:hover {
@@ -205,6 +206,17 @@
             color: #357ae8;
         }
 
+        .social-media a {
+            color: #ffffff;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-media a:hover {
+            color: #4285f4;
+        }
+
         /* Dark/Light Mode */
         body.light-mode {
             background-color: #ffffff;
@@ -224,19 +236,22 @@
             background-color: #dddddd;
         }
 
-        /* Loading Spinner */
-        .spinner {
-            display: none;
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
+        /* Progress Bar */
+        .progress-bar {
+            width: 80%;
+            height: 20px;
+            background-color: #444;
+            border-radius: 10px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
         }
 
-        .spinner img {
-            width: 100px;
-            height: 100px;
+        .progress-bar-inner {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(to right, #ff5733, #ffd700);
+            transition: width 1s ease-in-out;
         }
 
         /* Points Display */
@@ -246,6 +261,39 @@
             text-align: center;
             margin-top: 20px;
         }
+
+        /* Achievement Pop-up */
+        .achievement {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            display: none;
+            animation: fadein 1s;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1001;
+        }
     </style>
 </head>
 
@@ -253,28 +301,27 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
         <button class="mode-toggle" onclick="toggleMode()">🌙</button>
     </header>
 
-    <div class="hero">
+    <div class="hero" id="home">
         <div class="hero-content">
             <h1>Teknik AB Games</h1>
             <p>Play the best games with an interactive and immersive experience.</p>
             <div class="btn-container">
                 <a href="#" class="btn-primary">Play now</a>
                 <a href="#" class="btn-primary">Learn More</a>
+                <button onclick="surpriseMe()" class="btn-primary">Surprise Me!</button>
             </div>
         </div>
     </div>
 
-    <div class="points" id="pointsDisplay">Points: 0</div>
-
-    <div class="game-section">
+    <div class="game-section" id="games">
         <div class="game-container">
              <!-- Game Slot 1 -->
         <div class="game-slot">
@@ -498,57 +545,74 @@
         </div>
     </div>
 
-    <div class="footer">
-        <p>Version 4.2 &copy; 2024 Teknik AB Games. All rights reserved.</p>
-        <p>Created by Moviebox</p>
+    <div class="progress-bar" id="progressBar">
+        <div class="progress-bar-inner" id="progress"></div>
     </div>
 
-    <div class="spinner" id="loadingSpinner">
-        <img src="https://i.imgur.com/Zz6LUah.gif" alt="Loading...">
+    <div class="points" id="pointsDisplay">Points: 0</div>
+
+    <div class="achievement" id="achievementPopup">Achievement Unlocked!</div>
+
+    <div class="footer" id="contact">
+        <p>© 2024 Teknik AB Games</p>
+        <p>All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+            <a href="https://www.twitter.com" target="_blank">Twitter</a> |
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        </div>
     </div>
 
     <script>
         let points = 0;
 
-        function addPoints() {
-            points += 10; // Example point increment
-            document.getElementById('pointsDisplay').innerText = `Points: ${points}`;
-        }
-
         function toggleMode() {
-            const body = document.body;
-            const currentMode = body.classList.toggle('light-mode');
-            // Set cookie to remember mode
-            document.cookie = `theme=${currentMode ? 'light' : 'dark'};path=/;max-age=${365 * 24 * 60 * 60}`;
+            document.body.classList.toggle('light-mode');
         }
 
-        function showSpinner() {
-            document.getElementById('loadingSpinner').style.display = 'block';
+        function updateProgress() {
+            const progressBar = document.getElementById('progress');
+            const progressPercentage = Math.min(points, 100) + '%';
+            progressBar.style.width = progressPercentage;
         }
 
-        function hideSpinner() {
-            document.getElementById('loadingSpinner').style.display = 'none';
+        function triggerAchievement() {
+            if (points >= 100) {
+                const achievementPopup = document.getElementById('achievementPopup');
+                achievementPopup.style.display = 'block';
+                setTimeout(() => {
+                    achievementPopup.style.display = 'none';
+                }, 3000);
+            }
         }
 
-        // Load theme from cookies
-        window.onload = function () {
-            showSpinner();
-            const cookies = document.cookie.split(';');
-            const themeCookie = cookies.find(cookie => cookie.trim().startsWith('theme='));
+        function surpriseMe() {
+            const now = new Date();
+            const lastClickDate = localStorage.getItem('lastClickDate');
+            const dailyClicks = localStorage.getItem('dailyClicks') || 0;
 
-            if (themeCookie) {
-                const theme = themeCookie.split('=')[1];
-                if (theme === 'light') {
-                    document.body.classList.add('light-mode');
-                }
+            // Reset the count if it's a new day
+            if (!lastClickDate || new Date(lastClickDate).toDateString() !== now.toDateString()) {
+                localStorage.setItem('dailyClicks', 0);
+                localStorage.setItem('lastClickDate', now);
             }
 
-            // Simulate loading
-            setTimeout(() => {
-                hideSpinner();
-                addPoints(); // Simulate adding points on load
-            }, 2000); // 2 seconds loading time
-        };
+            const updatedClicks = localStorage.getItem('dailyClicks') || 0;
+
+            // Check if the button has been clicked less than 2 times today
+            if (updatedClicks < 2) {
+                const reward = Math.floor(Math.random() * 5) + 5;
+                points += reward;
+                document.getElementById('pointsDisplay').innerText = `Points: ${points}`;
+                updateProgress();
+                triggerAchievement();
+
+                // Increment the click count for today
+                localStorage.setItem('dailyClicks', parseInt(updatedClicks) + 1);
+            } else {
+                alert('You can only use the "Surprise Me!" button twice a day!');
+            }
+        }
     </script>
 </body>
 
