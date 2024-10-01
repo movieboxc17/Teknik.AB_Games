@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2b2b2b;
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+        }
+
+        header {
+            background-color: #1f1f1f;
+            padding: 20px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background-color: #007bff;
+            border-radius: 5px;
+        }
+
+        .hero {
+            background: #1f1f1f;
+            padding: 100px 20px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        section.content {
+            padding: 60px 20px;
+        }
+
+        .contact-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        form {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        form input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #1f1f1f;
+            padding: 20px;
+            box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.5);
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you! Feel free to reach out using the form below.</p>
+        </div>
+    </div>
+
+    <section class="content contact-section">
+        <form action="mailto:example@example.com" method="post" enctype="text/plain">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <input type="submit" value="Send">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 VideoGame X. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
