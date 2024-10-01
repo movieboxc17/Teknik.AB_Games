@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teknik AB Games</title>
+    <title>Teknik AB Games - Enhanced</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* General Styles */
@@ -19,6 +19,7 @@
 
         a {
             text-decoration: none;
+            color: inherit;
         }
 
         /* Header & Navigation */
@@ -29,13 +30,15 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         nav ul {
             list-style: none;
             padding: 0;
             display: flex;
-            justify-content: center;
             gap: 30px;
         }
 
@@ -44,11 +47,25 @@
             font-weight: 500;
             padding: 8px 15px;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         nav ul li a:hover {
             background-color: #444444;
+            color: #ffd700; /* Highlight on hover */
+        }
+
+        .mode-toggle {
+            padding: 10px;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .mode-toggle:hover {
+            background-color: #f0f0f0;
         }
 
         /* Hero Section */
@@ -77,6 +94,8 @@
         .hero-content {
             position: relative;
             z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero h1 {
@@ -94,6 +113,7 @@
             display: flex;
             gap: 20px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn-primary {
@@ -132,14 +152,14 @@
             background-color: #1f1f1f;
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
         }
 
         .game-slot:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
         }
 
         .game-image {
@@ -221,27 +241,10 @@
 
         /* Points Display */
         .points {
-            font-size: 1.2em;
+            font-size: 1.5em;
             color: #ffd700; /* Gold color */
             text-align: center;
             margin-top: 20px;
-        }
-
-        /* Button for Dark/Light Mode */
-        .mode-toggle {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            padding: 10px;
-            background-color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .mode-toggle:hover {
-            background-color: #f0f0f0;
         }
     </style>
 </head>
@@ -261,7 +264,7 @@
     <div class="hero">
         <div class="hero-content">
             <h1>Teknik AB Games</h1>
-            <p></p>
+            <p>Play the best games with an interactive and immersive experience.</p>
             <div class="btn-container">
                 <a href="#" class="btn-primary">Play now</a>
                 <a href="#" class="btn-primary">Learn More</a>
@@ -273,19 +276,12 @@
 
     <div class="game-section">
         <div class="game-container">
-            <!-- Paste your game slots here -->
-            <div class="game-slot">
-                <img src="game_image_url_here" alt="Game Image" class="game-image">
-                <h3>Game Title</h3>
-                <p>Game Description</p>
-                <a href="game_link_here" class="btn-primary">Play Game</a>
-            </div>
-            <!-- Game Slot 1 -->
+             <!-- Game Slot 1 -->
         <div class="game-slot">
             <img src="Fruit Catcher.jpg" alt="Game 1" class="game-image">
             <h3>Fruit Catcher</h3>
             <p>Controls: A=left D=right</p>
-            <a href="https://askansz.github.io/the.king/" class="btn-primary">Play Now</a>
+            <a href="https://askansz.github.io/the.king/" class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 2 -->
@@ -293,15 +289,15 @@
             <img src="Tic tac toe.jpg" alt="Game 2" class="game-image">
             <h3>Tic Tac Toe</h3>
             <p>No controls here..</p>
-            <a href="https://askansz.github.io/TicTacToeGame/" class="btn-primary">Play Now</a>
+            <a href="https://askansz.github.io/TicTacToeGame/" class="button">Play Now</a>
         </div>
         <!-- Repeat the above game slot HTML for Games 3 to 29 -->
         <!-- Game Slot 3 -->
         <div class="game-slot">
             <img src="Rule-based Chatbot.jpg" alt="Game 3" class="game-image">
             <h3>Chat Game</h3>
-            <p>This game dosent work rhigt now</p>
-            <a href="nothing here "URL" " class="btn-primary">Play Now</a>
+            <p>No controls here..</p>
+            <a href="nothing here "URL" " class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 4 -->
@@ -309,7 +305,7 @@
             <img src="Money game.jpg" alt="Game 4" class="game-image">
             <h3>Money Game</h3>
             <p>No controls here..</p>
-            <a href="https://movieboxc17.github.io/Game12/" class="btn-primary">Play Now</a>
+            <a href="https://movieboxc17.github.io/Game12/" class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 5 -->
@@ -317,7 +313,7 @@
             <img src="Guess the number.jpg" alt="Game 5" class="game-image">
             <h3>Guess The Number</h3>
             <p>No controls here..</p>
-            <a href="https://askansz.github.io/GuessTheNumber/" class="btn-primary">Play Now</a>
+            <a href="https://askansz.github.io/GuessTheNumber/" class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 6 -->
@@ -325,7 +321,7 @@
             <img src="Pixel camera.jpg" alt="Game 6" class="game-image">
             <h3>Pixel Camera</h3>
             <p>No controls here..</p>
-            <a href="https://movieboxc17.github.io/Test56/" class="btn-primary">Play Now</a>
+            <a href="https://movieboxc17.github.io/Test56/" class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 7 -->
@@ -333,7 +329,7 @@
             <img src="Money clicker.jpg" alt="Game 7" class="game-image">
             <h3>Money Clicker</h3>
             <p>No controls here..</p>
-            <a href="https://movieboxc17.github.io/Money-clicker/" class="btn-primary">Play Now</a>
+            <a href="https://movieboxc17.github.io/Money-clicker/" class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 8 -->
@@ -341,7 +337,7 @@
             <img src="Rock, Paper, Scissors Game.jpg" alt="Game 8" class="game-image">
             <h3>Rock, Paper, Scissors</h3>
             <p>No controls here..</p>
-            <a href="https://askansz.github.io/Rock_Paper_Scissors/" class="btn-primary">Play Now</a>
+            <a href="https://askansz.github.io/Rock_Paper_Scissors/" class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 9 -->
@@ -349,7 +345,7 @@
             <img src="Quiz Game.jpg" alt="Game 9" class="game-image">
             <h3>Quiz Game</h3>
             <p>No controls here..</p>
-            <a href="https://movieboxc17.github.io/Question_game/" class="btn-primary">Play Now</a>
+            <a href="https://movieboxc17.github.io/Question_game/" class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 10 -->
@@ -357,7 +353,7 @@
             <img src="Snake.jpg" alt="Game 10" class="game-image">
             <h3>Snake</h3>
             <p>W,A,S,D</p>
-            <a href="https://askansz.github.io/Snake/" class="btn-primary">Play Now</a>
+            <a href="https://askansz.github.io/Snake/" class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 11 -->
@@ -365,7 +361,7 @@
             <img src="Fruit Catcher 2.jpg" alt="Game 11" class="game-image">
             <h3>Fruit Catcher 2</h3>
             <p>A,D</p>
-            <a href="https://askansz.github.io/Fruit_Catcher_2/" class="btn-primary">Play Now</a>
+            <a href="https://askansz.github.io/Fruit_Catcher_2/" class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 12 -->
@@ -373,7 +369,7 @@
             <img src="Ping Pong.jpg" alt="Game 12" class="game-image">
             <h3>Ping Pong</h3>
             <p>player 1, W,S player 2, O,l</p>
-            <a href="https://movieboxc17.github.io/Ping-Pong/" class="btn-primary">Ping Pong</a>
+            <a href="https://movieboxc17.github.io/Ping-Pong/" class="button">Ping Pong</a>
         </div>
 
         <!-- Game Slot 13 -->
@@ -381,7 +377,7 @@
             <img src="Twin stick.jpg" alt="Game 13" class="game-image">
             <h3>Twin Stick</h3>
             <p>W,A,D,S and arow keys. Warning Beta</p>
-            <a href="https://moviebox-c17.itch.io/game?secret=gdaujtOa0Kq0Pw2OzrnA8Xa0jRo" class="btn-primary">Play Now</a>
+            <a href="https://moviebox-c17.itch.io/game?secret=gdaujtOa0Kq0Pw2OzrnA8Xa0jRo" class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 14 -->
@@ -389,7 +385,7 @@
             <img src="Tetris.jpg" alt="Game 14" class="game-image">
             <h3>Tetris</h3>
             <p>Arrow up, left, rhigt. </p>
-            <a href="https://askansz.github.io/Tetris/" class="btn-primary">Play Now</a>
+            <a href="https://askansz.github.io/Tetris/" class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 15 -->
@@ -397,7 +393,7 @@
             <img src="Breakout.jpg" alt="Game 15" class="game-image">
             <h3>Breakout</h3>
             <p>Control it with your finger.</p>
-            <a href="https://movieboxc17.github.io/Breakout/" class="btn-primary">Play Now</a>
+            <a href="https://movieboxc17.github.io/Breakout/" class="button">Play Now</a>
         </div>
 
         <!-- Game Slot 16 -->
@@ -405,121 +401,118 @@
             <img src="Puzzle.jpg" alt="Game 16" class="game-image">
             <h3>Puzzle</h3>
             <p>No controls here...</p>
-            <a href="https://movieboxc17.github.io/Number_puzzle/" class="btn-primary">Play Now</a>
+            <a href="https://movieboxc17.github.io/Number_puzzle/" class="button">Play Now</a>
         </div>
         <!-- Game Slot 17 -->
     <div class="game-slot">
             <img src="Hangman.jpg" alt="Game 17" class="game-image">
             <h3>Hangman</h3>
             <p>No controls here...</p>
-            <a href="https://movieboxc17.github.io/Hangman/" class="btn-primary">Play Now</a>
+            <a href="https://movieboxc17.github.io/Hangman/" class="button">Play Now</a>
         </div>
         <!-- Game Slot 18 -->
     <div class="game-slot">
             <img src="Connect Four.jpg" alt="Game 18" class="game-image">
             <h3>Connect Four</h3>
             <p>No controls but 2 player game</p>
-            <a href="https://movieboxc17.github.io/Connect_four/" class="btn-primary">Play Now</a>
+            <a href="https://movieboxc17.github.io/Connect_four/" class="button">Play Now</a>
         </div>
         <!-- Game Slot 19 -->
     <div class="game-slot">
             <img src="Minesweeper.jpg" alt="Game 19" class="game-image">
             <h3>Minesweeper</h3>
             <p>No controls here...</p>
-            <a href="https://movieboxc17.github.io/Minesweeper/" class="btn-primary">Play Now</a>
+            <a href="https://movieboxc17.github.io/Minesweeper/" class="button">Play Now</a>
         </div>
         <!-- Game Slot 20 -->
      <div class="game-slot">
             <img src="Cyberattack Simulation.jpg" alt="Game20" class="game-image">
             <h3>Cyberattack simulation</h3>
             <p>Remember this is only a simulation</p>
-            <a href="https://movieboxc17.github.io/Cyberattack_simulation/" class="btn-primary">Play Now</a>
+            <a href="https://movieboxc17.github.io/Cyberattack_simulation/" class="button">Play Now</a>
         </div>
         <!-- Game Slot 21 -->
     <div class="game-slot">
             <img src="l.jpg" alt="Game21" class="game-image">
             <h3>Target Takedown</h3>
             <p>No controls here...</p>
-            <a href="https://movieboxc17.github.io/Target_Takedown/" class="btn-primary">Play Now</a>
+            <a href="https://movieboxc17.github.io/Target_Takedown/" class="button">Play Now</a>
         </div>
         <!-- Game Slot 22 -->
     <div class="game-slot">
             <img src="Flappy.jpeg" alt="Game22" class="game-image">
             <h3>Flapy bird</h3>
             <p>Just click on the screen.</p>
-            <a href="https://castle.xyz/d/rIt0etYzs?cxshid=ygCjxtSY2&sid=767No_8kAwMO" class="btn-primary">Play Now</a>
+            <a href="https://castle.xyz/d/rIt0etYzs?cxshid=ygCjxtSY2&sid=767No_8kAwMO" class="button">Play Now</a>
         </div>
         <!-- Game Slot 23 -->
     <div class="game-slot">
             <img src="Zombie.jpeg" alt="Game23" class="game-image">
             <h3>Zombie apocalypse</h3>
             <p>Just drag the stone to kill the Zombies.</p>
-            <a href="https://castle.xyz/d/fiUL5QuxY?cxshid=zoYqpS8yq&sid=iLA5J-f6iWw4" class="btn-primary">Play Now</a>
+            <a href="https://castle.xyz/d/fiUL5QuxY?cxshid=zoYqpS8yq&sid=iLA5J-f6iWw4" class="button">Play Now</a>
         </div>
         <!-- Game Slot 24 -->
     <div class="game-slot">
             <img src="l.jpg" alt="Game24" class="game-image">
             <h3>Go cart Game</h3>
             <p>Use the arows to control the cart.</p>
-            <a href="..." class="btn-primary">Play Now</a>
+            <a href="..." class="button">Play Now</a>
         </div>
        <!-- Game Slot 25 -->
     <div class="game-slot">
             <img src="l.jpg" alt="Game25" class="game-image">
             <h3>Mini Golf</h3>
             <p>No controls here...</p>
-            <a href="..." class="btn-primary">Play Now</a>
+            <a href="..." class="button">Play Now</a>
         </div>
         <!-- Game Slot 26 -->
     <div class="game-slot">
             <img src="l.jpg" alt="Game26" class="game-image">
             <h3>Golf</h3>
             <p>No contrals here...</p>
-            <a href="..." class="btn-primary">Play Now</a>
+            <a href="..." class="button">Play Now</a>
         </div>
         <!-- Game Slot 27 -->
     <div class="game-slot">
             <img src="l.jpg" alt="Game27" class="game-image">
             <h3>Pin ball</h3>
             <p>No controls here...</p>
-            <a href="..." class="btn-primary">Play Now</a>
+            <a href="..." class="button">Play Now</a>
         </div>
         <!-- Game Slot 28 -->
     <div class="game-slot">
             <img src="l.jpg" alt="Game28" class="game-image">
             <h3>Cube Jump</h3>
             <p>No controls here...</p>
-            <a href="..." class="btn-primary">Play Now</a>
+            <a href="..." class="button">Play Now</a>
         </div>
         <!-- Game Slot 29 -->
     <div class="game-slot">
             <img src=".jpg" alt="Game29" class="game-image">
             <h3>Power backup sim</h3>
             <p>No controls here...</p>
-            <a href="https://movieboxc17.github.io/Power-backup-sim/" class="btn-primary">Play Now</a>
+            <a href="https://movieboxc17.github.io/Power-backup-sim/" class="button">Play Now</a>
         </div>
-
-            <!-- Repeat the above div for each game -->
+               <!-- More game slots can be added here -->
         </div>
     </div>
 
     <div class="footer">
-        <p>Version 4.3 &copy; 2024 Teknik AB Games. All rights reserved.</p>
-        <p>Created by Moviebox C17 & Askansz</p>
-        <p>Beta Access: <a href="https://docs.google.com/forms/d/e/1FAIpQLSecXHXr3JOXHXwi153XOv3uSsN5I1AKNnPMCNqNhqIT2oTo7g/viewform?usp=pp_url">Get Beta Access</a></p>
-        <p>We currently have no contact page because we launched a new update to the site, so please contact us at: info.teknik.ab@gmail.com</p>
+        <p>Version 4.2 &copy; 2024 Teknik AB Games. All rights reserved.</p>
+        <p>Created by Moviebox</p>
     </div>
 
     <div class="spinner" id="loadingSpinner">
-        <img src="Loading_icon.gif" alt="Loading...">
+        <img src="https://i.imgur.com/Zz6LUah.gif" alt="Loading...">
     </div>
 
     <script>
         let points = 0;
 
         function addPoints() {
-            points += 10;
-            document.getElementById("pointsDisplay").innerText = `Points: ${points}`;
+            points += 10; // Example point increment
+            document.getElementById('pointsDisplay').innerText = `Points: ${points}`;
         }
 
         function toggleMode() {
