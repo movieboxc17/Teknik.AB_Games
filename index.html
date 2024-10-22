@@ -308,20 +308,35 @@
         }
 
         /* Scroll to Top Button */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            background-color: #ffd700;
-            color: #000;
-            padding: 15px;
-            border-radius: 50%;
-            font-size: 1.5em;
-            cursor: pointer;
-            display: none;
-            z-index: 1000;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
+.scroll-to-top {
+    position: fixed;
+    bottom: 40px;
+    left: 30px;
+    background-color: #268beb;
+    color: #000;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for Scroll to Top Button */
+.scroll-to-top:hover {
+    background-color: #ffc107;
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Show button when needed */
+.scroll-to-top.show {
+    display: block;
+    opacity: 1;
+}
+
 
         .scroll-to-top:hover {
             transform: scale(1.1);
