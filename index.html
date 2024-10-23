@@ -235,10 +235,6 @@
             color: #4285f4;
         }
 
-        .social-media i {
-            margin-right: 10px;
-        }
-
         /* Dark/Light Mode */
         body.light-mode {
             background-color: #ffffff;
@@ -308,71 +304,76 @@
         }
 
         /* Scroll to Top Button */
-.scroll-to-top {
-    position: fixed;
-    bottom: 40px;
-    left: 30px;
-    background-color: #268beb;
-    color: #000;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 1.5em;
-    cursor: pointer;
-    display: none;
-    z-index: 1000;
-    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Hover effect for Scroll to Top Button */
-.scroll-to-top:hover {
-    background-color: #ffc107;
-    transform: scale(1.1);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Show button when needed */
-.scroll-to-top.show {
-    display: block;
-    opacity: 1;
-}
-
+        .scroll-to-top {
+            position: fixed;
+            bottom: 40px;
+            left: 30px;
+            background-color: #268beb;
+            color: #000;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
         .scroll-to-top:hover {
+            background-color: #ffc107;
             transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Hide on Small Screens */
+        @media (max-width: 768px) {
+            .game-slot {
+                width: 45%;
+            }
+
+            .scroll-to-top {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .game-slot {
+                width: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="logo">Teknik AB Games</div>
+        <h1>Teknik AB Games</h1>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Games</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Leaderboard</a></li>
+                <li><a href="#">About</a></li>
             </ul>
         </nav>
-        <button class="mode-toggle" onclick="toggleMode()">Toggle Mode</button>
+        <button class="mode-toggle" id="modeToggle"><i class="fas fa-adjust"></i></button>
     </header>
 
     <section class="hero">
         <div class="hero-content">
             <h1>Welcome to Teknik AB Games</h1>
-            <p>Your adventure starts here. Play, explore, and unlock achievements!</p>
+            <p>Your ultimate destination for online fun and entertainment!</p>
             <div class="btn-container">
-                <a href="#" class="btn-primary">Start Playing</a>
-                <a href="#" class="btn-primary">See Achievements</a>
+                <a href="#" class="btn-primary">Play Now</a>
+                <a href="#" class="btn-primary">View Leaderboard</a>
             </div>
         </div>
     </section>
 
     <section class="game-section">
-        <h2>Our Games</h2>
+        <h2>Featured Games</h2>
         <div class="game-container">
-          <!-- Game Slot 1 -->
-        <div class="game-slot">
+            <div class="game-slot">
             <img src="Fruit Catcher.jpg" alt="Game 1" class="game-image">
             <h3>Fruit Catcher</h3>
             <p>Controls: A=left D=right</p>
@@ -616,98 +617,59 @@
             <h3>Type writing game</h3>
             <p>No controls here...</p>
             <a href="" class="btn-primary">Play Now</a>
-            </div> 
-              <!-- More game slots can be added here --> 
+            </div>
         </div>
     </section>
 
-    <div class="progress-bar">
-        <div class="progress-bar-inner" id="progress"></div>
-    </div>
-
-    <div class="points" id="pointsDisplay">Points: 0</div>
-
-    <div class="achievement" id="achievementPopup">Achievement Unlocked!</div>
-
-    <footer class="footer">
-        <p>© 2024 Teknik AB Games</p>
-        <p>All rights reserved.</p>
+    <section class="footer">
+        <p>&copy; 2024 Teknik AB Games. All rights reserved.</p>
         <div class="social-media">
-            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="https://forms.office.com/pages/responsepage.aspx?id=_zyP38scPUGHUy2wGWmrNxd1rLAwBFlIhjbOCo5McS9UN0JPWkdaT1dDRzlWTFhPUDA4NkVJVEg1NC4u&origin=lprLink&route=shorturl" target="_blank" rel="noopener noreferrer" aria-label="Office Forms">
-  <i class="fab fa-forms"></i> Click here to leve a review</a>
-
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
-    </footer>
+    </section>
 
-    <button class="scroll-to-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+    <button class="scroll-to-top" id="scrollToTopBtn"><i class="fas fa-arrow-up"></i></button>
 
- <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2024/10/22/08/20241022082928-YF3HOHNO.js"></script>
-    
     <script>
-        let points = 0;
-
-        function toggleMode() {
-            document.body.classList.toggle('light-mode');
-        }
-
-        function updateProgress() {
-            const progressBar = document.getElementById('progress');
-            const progressPercentage = Math.min(points, 100) + '%';
-            progressBar.style.width = progressPercentage;
-        }
-
-        function triggerAchievement() {
-            if (points >= 100) {
-                const achievementPopup = document.getElementById('achievementPopup');
-                achievementPopup.style.display = 'block';
-                setTimeout(() => {
-                    achievementPopup.style.display = 'none';
-                }, 3000);
-            }
-        }
-
-        function surpriseMe() {
-            const now = new Date();
-            const lastClickDate = localStorage.getItem('lastClickDate');
-            const dailyClicks = localStorage.getItem('dailyClicks') || 0;
-
-            if (!lastClickDate || new Date(lastClickDate).toDateString() !== now.toDateString()) {
-                localStorage.setItem('dailyClicks', 0);
-                localStorage.setItem('lastClickDate', now);
-            }
-
-            const updatedClicks = localStorage.getItem('dailyClicks') || 0;
-
-            if (updatedClicks < 2) {
-                const reward = Math.floor(Math.random() * 5) + 5;
-                points += reward;
-                document.getElementById('pointsDisplay').innerText = `Points: ${points}`;
-                updateProgress();
-                triggerAchievement();
-
-                localStorage.setItem('dailyClicks', parseInt(updatedClicks) + 1);
-            } else {
-                alert('You can only use the "Surprise Me!" button twice a day!');
-            }
-        }
-
-        // Scroll to Top Function
-        window.onscroll = function() {
-            const scrollToTopBtn = document.querySelector('.scroll-to-top');
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
                 scrollToTopBtn.style.display = 'block';
             } else {
                 scrollToTopBtn.style.display = 'none';
             }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Dark/Light Mode Toggle
+        const modeToggle = document.getElementById('modeToggle');
+        modeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+        });
+
+        // Achievement Pop-up
+        const showAchievement = (message) => {
+            const achievement = document.createElement('div');
+            achievement.className = 'achievement';
+            achievement.innerText = message;
+            document.body.appendChild(achievement);
+
+            achievement.style.display = 'block';
+
+            setTimeout(() => {
+                achievement.remove();
+            }, 3000);
         };
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        // Example achievement trigger (use your logic to trigger it)
+        // showAchievement('You unlocked the "First Login" badge!');
     </script>
 </body>
 
