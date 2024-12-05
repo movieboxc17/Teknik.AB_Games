@@ -69,8 +69,16 @@
     </div>
 
     <script>
-        // Set the maintenance end time (1 hour from now for example)
-        const endTime = new Date().getTime() + 60 * 60 * 3000; // 1 hour from now
+        // Check if the end time is already set in local storage
+        let endTime = localStorage.getItem("endTime");
+        
+        if (!endTime) {
+            // Set the maintenance end time (1 hour from now for example)
+            endTime = new Date().getTime() + 60 * 60 * 3000; // 1 hour from now
+            localStorage.setItem("endTime", endTime); // Store the end time in localStorage
+        } else {
+            endTime = parseInt(endTime); // Ensure endTime is treated as a number
+        }
 
         function updateTimer() {
             const now = new Date().getTime();
