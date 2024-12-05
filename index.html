@@ -69,8 +69,8 @@
     </div>
 
     <script>
-        // Fixed end time for all users (example: 1 hour from now)
-        const endTime = new Date('2024-12-05T15:00:00').getTime(); // Set a fixed end time for all users
+        // Get the current time and add 24 hours (in milliseconds)
+        const endTime = new Date().getTime() + 24 * 60 * 60 * 1000; // 24 hours from now
 
         function updateTimer() {
             const now = new Date().getTime();
