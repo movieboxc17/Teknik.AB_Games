@@ -61,6 +61,7 @@
     <!-- Banner with Timer -->
     <div id="banner">
         <p>Our servers are currently offline for maintenance. They will be back online in <span id="timer"></span>.</p>
+        <p>The servers will be back up online in a few days</p>
     </div>
 
     <!-- Main Message Container -->
@@ -95,7 +96,7 @@
         // If no end time is stored, or the stored time has already passed
         if (!endTime || new Date().getTime() > parseInt(endTime, 10)) {
             // Set a new end time (24 hours from now)
-            endTime = new Date().getTime() + 24 * 60 * 60 * 1000;
+            endTime = new Date().getTime() + 0 * 60 * 60 * 1000;
             localStorage.setItem("endTime", endTime); // Save to localStorage
         } else {
             endTime = parseInt(endTime, 10); // Retrieve and parse the saved end time
