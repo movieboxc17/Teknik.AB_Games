@@ -69,15 +69,14 @@
     </div>
 
     <script>
-        // Get the current time and add 24 hours (in milliseconds)
-        const endTime = new Date().getTime() + 24 * 60 * 60 * 1000; // 24 hours from now
-
+        // Function to calculate and display the countdown
         function updateTimer() {
             const now = new Date().getTime();
             const timeRemaining = endTime - now;
 
             if (timeRemaining <= 0) {
                 document.getElementById("timer").innerHTML = "now!";
+                clearInterval(timerInterval); // Stop the timer
             } else {
                 const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
                 const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
@@ -86,8 +85,20 @@
             }
         }
 
+        // Check if the end time is already stored in localStorage
+        let endTime = localStorage.getItem("endTime");
+
+        if (!endTime) {
+            // If not stored, set a new end time (24 hours from now)
+            endTime = new Date().getTime() + 24 * 60 * 60 * 1000;
+            localStorage.setItem("endTime", endTime); // Save to localStorage
+        } else {
+            endTime = parseInt(endTime, 10); // Retrieve and parse the saved end time
+        }
+
         // Update the timer every second
-        setInterval(updateTimer, 1000);
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer(); // Initial call to show the timer immediately
     </script>
 
 </body>
