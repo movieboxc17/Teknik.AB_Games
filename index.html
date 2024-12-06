@@ -88,9 +88,10 @@
         // Check if the end time is already stored in localStorage
         let endTime = localStorage.getItem("endTime");
 
-        if (!endTime) {
-            // If not stored, set a new end time (24 hours from now)
-            endTime = new Date().getTime() + 48 * 60 * 60 * 1000;
+        // If no end time is stored, or the stored time has already passed
+        if (!endTime || new Date().getTime() > parseInt(endTime, 10)) {
+            // Set a new end time (24 hours from now)
+            endTime = new Date().getTime() + 24 * 60 * 60 * 1000;
             localStorage.setItem("endTime", endTime); // Save to localStorage
         } else {
             endTime = parseInt(endTime, 10); // Retrieve and parse the saved end time
