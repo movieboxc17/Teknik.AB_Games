@@ -5,33 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Server Maintenance</title>
     <style>
+        /* General Styles */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #2b2b2b;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e1e1e, #2b2b2b);
             color: #ffffff;
-            text-align: center;
-            padding: 50px;
             margin: 0;
+            padding: 0;
             overflow-x: hidden;
+            text-align: center;
         }
 
-        /* Banner Styles */
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        /* Shoutout Banner */
         #banner {
-            background: linear-gradient(90deg, #FF6347, #FF4500); /* Gradient effect */
+            background: linear-gradient(90deg, #FF6F61, #FF4500);
             color: #ffffff;
-            padding: 20px 15px;
-            font-size: 1.5em;
+            font-size: 1.8em;
             font-weight: bold;
+            padding: 20px 15px;
             position: fixed;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 30px);
-            max-width: 1000px;
-            text-align: center;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
+            width: calc(100% - 40px);
+            max-width: 1200px;
+            border-radius: 15px;
+            z-index: 1000;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.6);
             animation: slideDown 1.5s ease-out;
         }
 
@@ -44,87 +48,119 @@
             }
         }
 
-        /* Highlighted shoutout */
-        .shoutout {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #FFD700; /* Gold */
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        #banner span {
+            display: inline-block;
+            background: #FFD700;
+            color: #2b2b2b;
+            padding: 5px 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(255, 215, 0, 0.6);
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
             0% {
                 transform: scale(1);
-                text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
             }
             50% {
-                transform: scale(1.05);
-                text-shadow: 0 0 20px rgba(255, 215, 0, 1);
+                transform: scale(1.1);
             }
             100% {
                 transform: scale(1);
-                text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
             }
         }
 
         /* Main Message Styles */
         .message-container {
-            background-color: #444;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            width: 60%;
+            background: #333333;
             margin: 120px auto 0;
-            line-height: 1.8;
+            padding: 30px;
+            width: 70%;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
             animation: fadeIn 2s ease-in-out;
         }
 
         @keyframes fadeIn {
-            from {
+            0% {
                 opacity: 0;
+                transform: translateY(50px);
             }
-            to {
+            100% {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
         .message-container p {
-            font-size: 1.2em;
+            font-size: 1.4em;
+            line-height: 1.8;
+            margin: 20px 0;
         }
 
         .message-container strong {
-            color: #FFD700; /* Gold */
+            color: #FFD700;
         }
 
         .message-container em {
-            color: #28a745; /* Green */
+            color: #28a745;
         }
 
         .message-container a {
-            color: #1E90FF; /* Dodger Blue */
+            color: #1E90FF;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
 
         .message-container a:hover {
+            color: #FFD700;
             text-decoration: underline;
         }
 
-        /* Animation for excitement */
+        /* Sparkle Animation */
         .sparkles {
             color: #FFD700;
+            font-size: 1.2em;
             animation: sparkle 1.5s infinite;
         }
 
         @keyframes sparkle {
-            0%,
-            100% {
+            0% {
                 opacity: 0.2;
             }
             50% {
                 opacity: 1;
             }
+            100% {
+                opacity: 0.2;
+            }
+        }
+
+        /* Footer Section */
+        footer {
+            margin-top: 50px;
+            padding: 20px 0;
+            background: #1f1f1f;
+            color: #ffffff;
+            font-size: 1.2em;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #FFD700;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -132,17 +168,22 @@
 
     <!-- Shoutout Banner -->
     <div id="banner">
-        🚀 <span class="shoutout">Get ready for a HUGE update!</span> 🎉 
-        <br>✨ Exciting features are on the way! Stay tuned! ✨
+        🚀 <span>BIG UPDATE COMING SOON!</span> Stay tuned for exciting changes! 🎉
     </div>
 
     <!-- Main Message Container -->
     <div class="message-container">
-        <p>We sincerely apologize for the inconvenience. Our servers are currently <strong>offline</strong> as we prepare for a <em>major update</em> to bring you an improved experience!</p>
-        <p>Thank you for your patience and support. We can't wait to share the exciting changes with you!</p>
-        <p>Need help? Contact us at: <a href="mailto:teknik.ab.servers@gmail.com">teknik.ab.servers@gmail.com</a>.</p>
-        <p class="sparkles">✨ See you soon with something amazing! ✨</p>
+        <h2>⚙️ Server Maintenance</h2>
+        <p>Our servers are currently <strong>offline</strong> for a <em>major update</em>. We're working hard to bring you new and improved features!</p>
+        <p>Thank you for your patience during this time. We can't wait to show you what's coming next!</p>
+        <p>Need help or have questions? Reach us at: <a href="mailto:teknik.ab.servers@gmail.com">teknik.ab.servers@gmail.com</a></p>
+        <p class="sparkles">✨ Stay excited! Big things are on the way! ✨</p>
     </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Teknik AB Servers | All Rights Reserved</p>
+    </footer>
 
 </body>
 </html>
