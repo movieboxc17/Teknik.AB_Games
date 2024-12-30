@@ -1,1 +1,88 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .contact-container {
+            max-width: 500px;
+            width: 90%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .contact-container h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .contact-container p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+        .email-list {
+            list-style: none;
+            padding: 0;
+        }
+        .email-list li {
+            margin: 10px 0;
+        }
+        .email-list a {
+            text-decoration: none;
+            color: #ff9a9e;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        .email-list a:hover {
+            color: #fad0c4;
+        }
+        .footer-note {
+            font-size: 0.9em;
+            margin-top: 20px;
+            color: #bbb;
+        }
+        .copyright {
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you! Please feel free to reach out to us at one of the email addresses below. 
+           Kindly note that it might take us up to 24 hours to respond to your message.</p>
+        <ul class="email-list">
+            <li><a href="mailto:support@example.com">info.pixelhavengames@gmail.com</a></li>
+            <li><a href="mailto:info@example.com">servers.pixelhavengames@gmail.com</a></li>
+        </ul>
+        <p class="footer-note">We appreciate your patience and understanding. Thank you for reaching out!</p>
+        <p class="copyright">© 2025 PixelHavenGames. All rights reserved.</p>
+    </div>
+</body>
+</html>
