@@ -12,13 +12,12 @@
             color: #ffffff;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
             text-align: center;
         }
 
         h1, h2, h3 {
             margin: 0;
-            line-height: 1.2;
+            line-height: 1.3;
         }
 
         /* Shoutout Banner */
@@ -27,14 +26,14 @@
             color: #ffffff;
             font-size: 1.8em;
             font-weight: bold;
-            padding: 20px 15px;
+            padding: 15px;
             position: fixed;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 40px);
+            width: 90%;
             max-width: 1200px;
-            border-radius: 15px;
+            border-radius: 10px;
             z-index: 1000;
             box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.6);
             animation: slideDown 1.5s ease-out;
@@ -72,14 +71,14 @@
             }
         }
 
-        /* Main Message Styles */
+        /* Main Content */
         .message-container {
-            background: #333333;
-            margin: 120px auto 0;
+            background: #2c2c2c;
+            margin: 140px auto 0;
             padding: 30px;
-            width: 70%;
+            width: 80%;
             max-width: 800px;
-            border-radius: 20px;
+            border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
             animation: fadeIn 2s ease-in-out;
         }
@@ -96,9 +95,9 @@
         }
 
         .message-container p {
-            font-size: 1.4em;
-            line-height: 1.8;
-            margin: 20px 0;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 15px 0;
         }
 
         .message-container strong {
@@ -107,6 +106,7 @@
 
         .message-container em {
             color: #28a745;
+            font-style: normal;
         }
 
         .message-container a {
@@ -121,23 +121,44 @@
             text-decoration: underline;
         }
 
-        /* Sparkle Animation */
-        .sparkles {
-            color: #FFD700;
-            font-size: 1.2em;
-            animation: sparkle 1.5s infinite;
+        /* Progress Bar */
+        .progress-bar {
+            margin: 20px 0;
+            background: #444;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 20px;
+            width: 70%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
         }
 
-        @keyframes sparkle {
-            0% {
-                opacity: 0.2;
+        .progress-bar span {
+            display: block;
+            background: linear-gradient(90deg, #FFD700, #FF6F61);
+            height: 100%;
+            width: 70%; /* Example progress */
+            animation: progressGrow 3s ease-in-out forwards;
+        }
+
+        @keyframes progressGrow {
+            from {
+                width: 0;
             }
-            50% {
-                opacity: 1;
+            to {
+                width: 70%;
             }
-            100% {
-                opacity: 0.2;
-            }
+        }
+
+        .progress-bar p {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            color: #fff;
         }
 
         /* Footer Section */
@@ -146,7 +167,7 @@
             padding: 20px 0;
             background: #1f1f1f;
             color: #ffffff;
-            font-size: 1.2em;
+            font-size: 1em;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.6);
         }
 
@@ -163,6 +184,27 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Button */
+        .contact-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #1E90FF;
+            color: #fff;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background: #FFD700;
+            color: #2b2b2b;
+        }
     </style>
 </head>
 <body>
@@ -175,11 +217,18 @@
     <!-- Main Message Container -->
     <div class="message-container">
         <h2>⚙️ Server Maintenance</h2>
-        <p>Our servers are currently <strong>offline</strong> for a <em>major update</em>. We're working diligently to bring you exciting new features and improvements!</p>
-        <p>We truly appreciate your patience during this time. Great things are just around the corner!</p>
-        <p>If you have questions or need assistance, feel free to reach us at: <a href="mailto:teknik.ab.servers@gmail.com">teknik.ab.servers@gmail.com</a></p>
-        <p class="sparkles">✨ Stay tuned! Exciting updates are on their way! ✨</p>
-        <p>The servers are expected to be back online in early <strong>2025</strong>.</p>
+        <p>We're currently performing <strong>server updates</strong> to deliver new and improved features. Our team is working tirelessly to make everything perfect for you!</p>
+        <p>We appreciate your patience and can't wait to unveil the exciting changes.</p>
+        <p>Expected completion: <strong>Early 2025</strong></p>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <span></span>
+            <p>Progress: 70%</p>
+        </div>
+
+        <p>Need assistance? Contact us at: <a href="mailto:teknik.ab.servers@gmail.com">teknik.ab.servers@gmail.com</a></p>
+        <button class="contact-button">Contact Us</button>
     </div>
 
     <!-- Footer Section -->
